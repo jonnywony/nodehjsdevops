@@ -1,0 +1,42 @@
+version: 2.1 
+jobs:
+  build:
+    environment:
+      NODE_ENV: 'test'
+    working_directory: /usr/src/app/
+    docker:
+      - image: node:15-alpine
+      - image: mongo:latest
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: boilerplateAdmin
+          MONGO_INITDB_ROOT_PASSWORD: boilerplateAdmin
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 
+          name: Install project dependencies
+          command: npm install --verbose
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json"}}
+          paths:
+            - node_modules
+
+      #- run: npm run lint
+
+      - run:
+          name: Run unit tests
+          command: npm run unit-test
+      
+      - run:
+          name: Run load tests
+          command: npm run load-test
+        
+      - run: docker build -t jonnywony:devops:boilerplatedemo .
+
+workflows:
+  version: 2
+  run_build:
+    jobs:
+      - build

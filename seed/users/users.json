@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "5bbaa392207a04008597aec6",
+        "username": "johnadmin",
+        "email": "john_doe@gmail.com",
+        "date_created": 1588310860,
+        "first_name": "John",
+        "last_name": "Doe",
+        "hashed_password": "a59901852f5b92336d194c540296b17b632ea485a775e6afcdd441d29f7b049e268ac2b8144b3fd3ddfcf61b383e18663c2ab5f68366cf91dd25b467bf72d3c6",
+        "isActive": true,
+        "salt": "25ab7d5aaf9dcbe1",
+        "roles": "admin"
+    }
+]

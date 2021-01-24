@@ -1,0 +1,10 @@
+{
+    "verbose":true,
+    "ignore":[
+        "seed/**/*.json"
+    ],
+    "env":{
+        "NODE_ENV":"development"
+    }
+
+}

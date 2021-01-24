@@ -1,0 +1,39 @@
+version: '2'
+services:
+    base:
+      image: node:15-alpine
+      volumes:
+        - ./:/usr/src/app/:ro
+      working_dir: /usr/src/app/
+      expose:
+        - "3000"
+    install:
+      extends:
+        service: base
+      command: npm i
+    unit-test:
+      extends:
+        service: base
+      command: npm run unit-test
+      depends_on:
+        - mongodbdev
+      links:
+        - mongodbdev
+    load-test:
+      extends:
+        service: base
+      command: npm run load-test
+      depends_on:
+        - mongodbdev
+      links:
+        - mongodbdev
+    mongodbdev:
+      container_name: mongodbdev
+      image: mongo:latest
+      environment:
+            MONGO_INITDB_ROOT_USERNAME: boilerplateAdmin
+            MONGO_INITDB_ROOT_PASSWORD: boilerplateAdmin
+      restart: always   
+
+        
+

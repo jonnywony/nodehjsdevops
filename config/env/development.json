@@ -1,0 +1,12 @@
+{
+    "PORT":"3000",
+    "HOST":"127.0.0.1",
+    "SESSION_SECRET":"123",
+    "MONGODB_URL": "mongodb://mongodb:27017/BoilerPlateDB",
+    "JWT_SECRET": "development",
+    "MONGODB_USER": "boilerplateAdmin",
+    "MONGODB_PASSWORD": "boilerplateAdmin",
+    "ISSUER":"john",
+    "SUBJECT": "john@gmail.com",
+    "AUDIENCE": "http://john.com"
+}

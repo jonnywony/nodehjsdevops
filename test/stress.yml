@@ -1,0 +1,20 @@
+config:
+  target: "http://127.0.0.1:80"
+  phases:
+    - duration: 10
+      arrivalRate: 5
+  processor: "../helper/faker.js"
+
+scenarios:
+  - name: "Register a user"
+    flow:
+      - function: "generateRandomUserData"
+      - post:
+          url: "/api/user/register"
+          json: 
+            username: "{{ username }}"
+            email: "{{ email }}"
+            first_name: "{{ firstname }}"
+            last_name: "{{ lastname }}"
+            password: "{{ password }}"
+      - log: "Sent a request to /api/user/register with {{ username }}, {{ email }}, {{ password }}, {{ firstname }}, {{ lastname }}"

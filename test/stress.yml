@@ -1,8 +1,8 @@
 config:
-  target: "http://127.0.0.1:80"
+  target: "http://127.0.0.1:3000"
   phases:
     - duration: 10
-      arrivalRate: 5
+      arrivalRate: 1
   processor: "../helper/faker.js"
 
 scenarios:

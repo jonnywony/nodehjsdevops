@@ -3,7 +3,7 @@ jobs:
   build:
     environment:
       NODE_ENV: 'test'
-    working_directory: /usr/src/app/
+    #working_directory: /usr/src/app/
     docker:
       - image: node:15-alpine
       - image: mongo:latest
@@ -29,9 +29,9 @@ jobs:
           name: Run unit tests
           command: npm run unit-test
       
-      - run:
-          name: Run load tests
-          command: npm run load-test
+      #- run:
+      #    name: Run load tests
+      #    command: npm run load-test
         
       - run: docker build -t jonnywony:devops:boilerplatedemo .
 

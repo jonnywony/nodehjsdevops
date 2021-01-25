@@ -24,6 +24,9 @@ jobs:
             - node_modules
 
       #- run: npm run lint
+      - run:
+          name: print current directory
+          command: ls
 
       - run:
           name: Run unit tests

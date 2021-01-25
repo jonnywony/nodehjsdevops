@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: Run unit tests
-          command: npm unit-test
+          command: npm run unit-test
       #- run:
       #    name: Set stage for load tests
       #    command: node index.js

@@ -1,5 +1,5 @@
 config:
-  target: "http://127.0.0.1:3000"
+  target: "http://run:3000"
   phases:
     - duration: 10
       arrivalRate: 1

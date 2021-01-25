@@ -11,24 +11,30 @@ services:
       extends:
         service: base
       command: npm i
+    run:
+      extends:
+        service: base
+      command: node index.js
     unit-test:
       extends:
         service: base
       command: npm run unit-test
       depends_on:
-        - mongodbdev
+        - mongodb
       links:
-        - mongodbdev
+        - mongodb
     load-test:
       extends:
         service: base
       command: npm run load-test
       depends_on:
-        - mongodbdev
+        - mongodb
+        - run
       links:
-        - mongodbdev
-    mongodbdev:
-      container_name: mongodbdev
+        - mongodb
+        - run
+    mongodb:
+      container_name: mongodb
       image: mongo:latest
       environment:
             MONGO_INITDB_ROOT_USERNAME: boilerplateAdmin

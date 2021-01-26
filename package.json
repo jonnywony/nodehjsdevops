@@ -2,7 +2,7 @@
     "name": "backend",
     "scripts": {
         "dev": "nodemon index.js -config nodemon.config.json",
-        "unit-test": "mocha",
+        "unit-test": "./node_modules/mocha/bin/mocha",
         "load-test": "artillery run ./test/stress.yml",
         "prod": "node index.js"
     },
